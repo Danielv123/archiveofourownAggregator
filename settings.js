@@ -3,4 +3,5 @@ module.exports = {
 	databaseName: "subscriptionDatabase.json",
 	emailAddress : "subbot@gmail.com",
 	emailPassword: "hunter1",
+	port: 80,
 }

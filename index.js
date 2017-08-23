@@ -6,6 +6,7 @@ var app = express();
 
 // dependencies within the project
 var subManager = require("./lib/subManager.js");
+const settings = require("./settings");
 
 app.use(express.static('books'));
 app.use(express.static('static'));
@@ -36,7 +37,7 @@ subManager.add({
 	type:"chapter"
 });*/
 
-var server = app.listen(80, function () {
+var server = app.listen(settings.port, function () {
 	console.log("Listening on port %s...", server.address().port);
 });
 
