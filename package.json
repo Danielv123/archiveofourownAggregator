@@ -1,0 +1,38 @@
+{
+  "name": "archiveofourownAggregator",
+  "version": "0.0.1",
+  "description": "Webapp to send notifications",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danielv123/archiveofourownAggregator.git"
+  },
+  "keywords": [
+    "epub"
+  ],
+  "author": "Daniel Vestøl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Danielv123/archiveofourownAggregator/issues"
+  },
+  "homepage": "https://github.com/Danielv123/archiveofourownAggregator#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cheerio": "^0.22.0",
+    "express": "^4.15.4",
+    "fs": "0.0.1-security",
+    "is-email": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "needle": "^1.6.0",
+    "nodemailer": "^4.0.1",
+    "nodemon": "^1.10.2",
+    "quick-epub": "^1.0.0",
+    "request": "^2.81.0",
+    "sendmail": "^1.2.0",
+    "urlparser": "^0.3.9"
+  }
+}
