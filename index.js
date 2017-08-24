@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({limit: '500mb', extended: true}));
 app.post("/api/subscribe", function(req, res) {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	console.log(req.body);
 	/*
 	{
 		email:x@x.com,
@@ -26,7 +25,9 @@ app.post("/api/subscribe", function(req, res) {
 	}
 	*/
 	let x = req.body;
-	subManager.add({email:x.email, name:x.name, storyURL:x.storyURL, type:x.type})
+	subManager.add({email:x.email, name:x.name, storyURL:x.storyURL, type:x.type}, x=>{
+		res.end(x);
+	});
 });
 // testing
 /*

@@ -16,8 +16,19 @@ window.onload = ()=>{
 			// send the collected data as JSON
 			xhr.send(JSON.stringify({email:email,name:name,storyURL:url,type:"chapter"}));
 			
-			xhr.onloadend = function () {
-				// done
+			xhr.onreadystatechange = function () {
+				if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+					
+					if(xhr.responseText.includes("failed")){
+						console.log(xhr.responseText);
+						setTimeout(()=>location.reload(),3000);
+					} else if(xhr.responseText == "success"){
+						console.log("Success, yay!");
+						setTimeout(()=>location.reload(),3000);
+					} else {
+						console.log(xhr.responseText);
+					}
+				}
 			};
 		}
 	}
