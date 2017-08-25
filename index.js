@@ -8,7 +8,6 @@ var app = express();
 var subManager = require("./lib/subManager.js");
 const settings = require("./settings");
 
-app.use(express.static('books'));
 app.use(express.static('static'));
 app.use(bodyParser.json({limit: '500mb'}));
 app.use(bodyParser.urlencoded({limit: '500mb', extended: true}));
