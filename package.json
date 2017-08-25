@@ -27,13 +27,16 @@
     "express": "^4.15.4",
     "fs": "0.0.1-security",
     "is-email": "^1.0.0",
+    "istanbul": "^0.4.5",
     "mkdirp": "^0.5.1",
+    "mocha": "^3.5.0",
     "needle": "^1.6.0",
     "nodemailer": "^4.0.1",
     "nodemon": "^1.10.2",
     "quick-epub": "^1.0.0",
     "request": "^2.81.0",
     "sendmail": "^1.2.0",
+    "sinon": "^3.2.1",
     "urlparser": "^0.3.9"
   }
 }
