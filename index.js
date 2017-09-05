@@ -45,5 +45,6 @@ var server = app.listen(settings.port, function () {
 process.on('SIGINT', function () {
 	console.log('### Saving databases and exiting ###');
 	subManager.saveSync();
+	console.log("Exiting")
 	process.exit(2);
 });
