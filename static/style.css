@@ -1,0 +1,59 @@
+* {
+  margin: 0px;
+}
+html, body {
+  height:100%;
+}
+/* Title and subtitle */
+body > #container > h1 {
+  text-align: center;
+  font-size:50px;
+  font-family:verdana;
+}
+#container > p {
+  text-align:center;
+}
+
+/* Main structural elements of page */
+#addBookForm {
+  width:420px;
+  float:left;
+}
+#showBooks {
+  width: calc(100% - 420px);
+  float:left;
+  border-left:2px solid black;
+  box-sizing:border-box;
+}
+#showBooks > * {
+  margin-left:5px;
+}
+
+/* Form on left hand side of page */
+#addBookForm input {
+  width:400px;
+  margin: 3px;
+}
+#addBookForm :nth-child(4) {
+  width:180px;
+  margin-left: calc((100% - 180px) / 2);
+}
+#addBookForm :nth-child(4) input {
+  width:inherit;
+}
+
+/* Table on right hand side of page */
+#showBooks > tbody {
+  overflow: auto;
+}
+#showBooks tr:nth-child(odd) {
+  background-color:#DDD;
+}
+#showBooks .book td {
+  border-right: 1px solid black;
+}
+#showBooks tr td {
+  margin-right:10px;
+  min-width:140px;
+  border-bottom: 1px solid black;
+}

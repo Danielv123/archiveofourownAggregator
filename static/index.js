@@ -38,6 +38,13 @@ window.onload = ()=>{
 			emailField.style.borderColor = "red";
 		} else {
 			emailField.style.borderColor = "green";
+			$.ajax({
+				type: "POST",
+				data :JSON.stringify({"email":emailField.value}),
+				url: "api/subscriptions",
+				contentType: "application/json",
+				success: data => {document.querySelector("#booksContainer").innerHTML = formatSubscriptions(JSON.parse(data))},
+			});
 		}
 	}
 	document.querySelector("#name").onchange = () => {
@@ -57,7 +64,14 @@ window.onload = ()=>{
 		}
 	}
 }
-
+formatSubscriptions = data => {
+	let HTML = "<tr><td>URL</td><td>Title</td><td>Author</td><td>Chapters</td></tr>";
+	data.forEach(book => {
+		HTML += "<tr class='book'><td class='url'>"+book.url+"</td><td class='title'><a href='"+book.url+"'>"+book.title+"</a></td><td class='author'>"+book.author+"</td><td class='chapters'>Chapters: <span>"+book.chapterCount+"</span></td></tr>"
+	});
+	
+	return HTML;
+}
 validateEmail = address => {
 	return !!(address.includes("@") && address.includes("."));
 }

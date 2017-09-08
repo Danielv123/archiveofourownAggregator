@@ -28,6 +28,22 @@ app.post("/api/subscribe", function(req, res) {
 		res.end(x);
 	});
 });
+app.post("/api/subscriptions", function(req,res){
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	/*
+	{
+		email:x@x.com
+	}
+	*/
+	subManager.getSubscriptions({"email":req.body.email}, (err, subs) => {
+		if(!err){
+			res.end(JSON.stringify(subs));
+		} else {
+			console.log(err);
+		}
+	});
+});
 // testing
 /*
 subManager.add({
