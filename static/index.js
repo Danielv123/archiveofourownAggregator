@@ -1,4 +1,8 @@
 
+global = {
+	books:[],
+	};
+
 window.onload = ()=>{
 	// attach event listners
 	document.querySelector("#submit").onclick = ()=>{
@@ -8,7 +12,7 @@ window.onload = ()=>{
 		let url = document.querySelector("#url").value;
 		if(validateEmail(email) && validateName(name) && validateURL(url)){
 			console.log("Sending request")
-			// AJAX STUFF :D
+			// AJAX STUFF
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "/api/subscribe", true);
 			xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
@@ -37,34 +41,76 @@ window.onload = ()=>{
 	}
 	document.querySelector("#email").onchange = ()=>{
 		let emailField = document.querySelector("#email");
-		if(!validateEmail(emailField.value)){
-			emailField.style.borderColor = "red";
-		} else {
-			emailField.style.borderColor = "green";
-			$.ajax({
-				type: "POST",
-				data :JSON.stringify({"email":emailField.value}),
-				url: "api/subscriptions",
-				contentType: "application/json",
-				success: data => {document.querySelector("#booksContainer").innerHTML = formatSubscriptions(JSON.parse(data))},
-			});
-		}
+		handleEmailFieldChange(emailField);
 	}
 	document.querySelector("#name").onchange = () => {
 		let nameField = document.querySelector("#name");
-		if(!validateName(nameField.value)){
-			nameField.style.borderColor = "red";
-		} else {
-			nameField.style.borderColor = "green";
-		}
+		handleNameFieldChange(nameField);
 	}
+	document.querySelector("#submit").disabled = true;
 	document.querySelector("#url").onchange = () => {
 		let urlField = document.querySelector("#url");
 		if(!validateURL(urlField.value)){
 			urlField.style.borderColor = "red";
+			document.querySelector("#submit").disabled = true;
 		} else {
 			urlField.style.borderColor = "green";
+			document.querySelector("#submit").disabled = false;
+			if(urlField.value.includes("/chapters")){
+				urlField.value = urlField.value.split("/chapters")[0];
+			}
+			
+			// Check if book is already subscribed to, disable button and hilight if it is
+			document.querySelectorAll(".url").forEach(url => {
+				if(url.innerHTML.includes(urlField.value)){
+					document.querySelector("#submit").disabled = true;
+					urlField.style.borderColor = "red";
+					url.parentElement.style.backgroundColor = "red";
+					// alert("Book already subscribed to"); // no need for alert, we will just give visual cluses instead
+				}
+			});
 		}
+	}
+	
+	
+	// get last values for name and email from localStorage
+	if(localStorage.email) {
+		let emailField = document.querySelector("#email");
+		emailField.value = localStorage.email;
+		handleEmailFieldChange(emailField);
+	}
+	if(localStorage.name) {
+		let nameField = document.querySelector("#name");
+		nameField.value = localStorage.name;
+		handleNameFieldChange(nameField);
+	}
+}
+handleEmailFieldChange = emailField => {
+	if(!validateEmail(emailField.value)){
+		emailField.style.borderColor = "red";
+	} else {
+		localStorage.email = emailField.value;
+		
+		emailField.style.borderColor = "green";
+		$.ajax({
+			type: "POST",
+			data :JSON.stringify({"email":emailField.value}),
+			url: "api/subscriptions",
+			contentType: "application/json",
+			success: data => {
+				document.querySelector("#booksContainer").innerHTML = formatSubscriptions(JSON.parse(data));
+				global.books = data;
+			},
+		});
+	}
+}
+handleNameFieldChange = nameField => {
+	if(!validateName(nameField.value)){
+		nameField.style.borderColor = "red";
+	} else {
+		localStorage.name = nameField.value;
+		
+		nameField.style.borderColor = "green";
 	}
 }
 formatSubscriptions = data => {
