@@ -57,3 +57,13 @@ body > #container > h1 {
   min-width:140px;
   border-bottom: 1px solid black;
 }
+
+/* Loading spinner */
+#loading {
+	position:fixed;
+	display:none;
+	width:200px;
+	height:200px;
+	top: calc(50% - 200px);
+	left: calc(50% - 200px);
+}
