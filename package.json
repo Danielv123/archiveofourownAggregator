@@ -34,7 +34,7 @@
     "needle": "^1.6.0",
     "nodemailer": "^4.0.1",
     "nodemon": "^1.10.2",
-    "quick-epub": "^1.0.0",
+    "quick-epub": "^2.0.2",
     "request": "^2.81.0",
     "sendmail": "^1.2.0",
     "sinon": "^3.2.1",
