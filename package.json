@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "test": "mocha --recursive \"./{,!(node_modules)/**/}*.spec.js\" || echo .",
-    "cover": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- \"./{,!(node_modules)/**/}*.spec.js\" -R spec || echo ."
+    "cover": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- \"./{,!(node_modules)/**/}*.spec.js\" -R spec || echo .",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -38,6 +40,8 @@
     "request": "^2.81.0",
     "sendmail": "^1.2.0",
     "sinon": "^3.2.1",
-    "urlparser": "^0.3.9"
-  }
+    "urlparser": "^0.3.9",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
