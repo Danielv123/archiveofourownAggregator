@@ -35,7 +35,7 @@
     "nodemailer": "^4.0.1",
     "nodemon": "^1.14.11",
     "quick-epub": "^2.0.2",
-    "request": "^2.81.0",
+    "request": "^2.88.0",
     "sendmail": "^1.2.0",
     "sinon": "^3.2.1",
     "urlparser": "^0.3.9"
