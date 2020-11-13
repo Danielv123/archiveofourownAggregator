@@ -34,7 +34,7 @@
     "mkdirp": "^0.5.2",
     "mocha": "^8.2.0",
     "needle": "^1.6.0",
-    "nodemailer": "^4.0.1",
+    "nodemailer": "^6.4.16",
     "nodemon": "^2.0.3",
     "quick-epub": "^2.0.2",
     "request": "^2.88.0",
