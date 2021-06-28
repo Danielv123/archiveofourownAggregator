@@ -28,7 +28,7 @@
     "cheerio": "^0.22.0",
     "express": "^4.16.0",
     "fs": "0.0.1-security",
-    "is-email": "^1.0.0",
+    "is-email": "^1.0.1",
     "istanbul": "^0.4.5",
     "jsdom": "^11.2.0",
     "mkdirp": "^0.5.2",
