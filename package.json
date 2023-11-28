@@ -30,7 +30,7 @@
     "fs": "0.0.1-security",
     "is-email": "^1.0.1",
     "istanbul": "^0.4.5",
-    "jsdom": "^11.2.0",
+    "jsdom": "^16.6.0",
     "mkdirp": "^0.5.2",
     "mocha": "^10.1.0",
     "needle": "^1.6.0",
