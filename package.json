@@ -35,7 +35,7 @@
     "mocha": "^10.1.0",
     "needle": "^1.6.0",
     "nodemailer": "^6.6.1",
-    "nodemon": "^2.0.20",
+    "nodemon": "^3.0.0",
     "quick-epub": "^2.0.2",
     "request": "^2.88.0",
     "sendmail": "^1.2.0",
